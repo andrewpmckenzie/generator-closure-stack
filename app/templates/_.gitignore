@@ -1,5 +1,19 @@
 # BUILT ARTIFACTS / DEPENDENCIES
+dependencies
+build
 node_modules
+.grunt
+node
+grunt
+
+# RUNTIME
+logs
+*.log
+pids
+*.pid
+*.seed
+.lock-wscript
+tmp
 
 # IDE
 *.iml

@@ -96,8 +96,8 @@ var StackGenerator = yeoman.generators.Base.extend({
       this.src.recurse('.', function(abspath, rootdir, subdir, filename) {
         var path = (subdir ? subdir + '/' : '') + filename;
 
-        // Replace all directories named APP with the app name
-        var destPath = path.replace('APP', this.props.jsNamespace);
+        // Replace all directories named APP with the app name, and remove any preceeding underscores from filenames
+        var destPath = (subdir ? subdir + '/' : '').replace('APP', this.props.jsNamespace) + filename.replace(/^_/, '');
 
         // Only copy third_party files
         if (path.indexOf('third_party') > 0) {
