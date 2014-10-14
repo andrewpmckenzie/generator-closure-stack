@@ -1,13 +1,12 @@
 {
   "name": "generator-closure-stack",
-  "version": "0.1.0",
-  "description": "Yeoman generator for browser stack with closure compiler, soy templates + express",
+  "version": "0.0.1",
+  "description": "Yeoman generator for stack with closure compiler, soy templates, less + express",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "andrewpmckenzie/generator-closure-stack",
   "author": {
     "name": "Andrew McKenzie",
-    "email": "",
     "url": "https://github.com/andrewpmckenzie"
   },
   "engines": {
@@ -17,14 +16,18 @@
     "app"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "closure-compiler",
+    "closure-templates",
+    "soy-templates",
+    "less-css"
   ],
   "dependencies": {
-    "yeoman-generator": "^0.17.0",
-    "chalk": "^0.5.0",
-    "yosay": "^0.3.0"
+    "yeoman-generator": "0.17.x",
+    "chalk": "0.5.x",
+    "yosay": "0.3.x"
   },
   "peerDependencies": {
-    "yo": ">=1.0.0"
+    "yo": "1.x.x"
   }
 }
