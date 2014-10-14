@@ -1,0 +1,28 @@
+{
+  "name": "$_projectName_$",
+  "description": "$_projectDescription_$",
+  "version": "0.0.1",
+  "author": {
+    "name": "$_authorName_$",
+    "email": "$_authorEmail_$",
+    "url": "$_authorUrl_$"
+  },
+  "homepage": "$_projectHomepage_$",
+  "repository": {
+    "type": "git",
+    "url": "$_projectUrl_$"
+  },
+  "main": "./src/server/js/server.js",
+  "dependencies": {
+    "express": "4.x",
+    "soynode": "0.6.1",
+    "grunt-express-server": "0.4.x",
+    "grunt-contrib-watch": "0.6.x",
+    "grunt-contrib-copy": "0.6.x",
+    "grunt-contrib-less": "0.11.x",
+    "grunt-soy-compile": "0.5.x",
+    "grunt-curl": "2.0.x",
+    "grunt-zip": "0.16.x",
+    "grunt-closure-tools": "andrewpmckenzie/grunt-closure-tools"
+  }
+}

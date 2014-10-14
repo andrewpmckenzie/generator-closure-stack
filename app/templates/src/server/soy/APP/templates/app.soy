@@ -1,0 +1,18 @@
+{namespace $_jsNamespace_$.templates.app}
+
+/**
+ */
+{template .chrome}
+  <html>
+    <head>
+      <script src="/js/third_party/jquery-1.8.js"></script>
+      <script src="/js/third_party/underscore-1.7.js"></script>
+      <script src="/js/$_jsNamespace_$.js"></script>
+      <link href="/css/base.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+      <div id="page">Loading...</div>
+      <script>$_jsNamespace_$.core.Router.init($('#page'));</script>
+    </body>
+  </html>
+{/template}

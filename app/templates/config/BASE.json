@@ -1,0 +1,31 @@
+{
+  "SRC_ROOT": "<%= PROJECT_ROOT %>/src",
+  "BUILD_ROOT": "<%= PROJECT_ROOT %>/build",
+  "DEPENDENCIES_ROOT": "<%= PROJECT_ROOT %>/dependencies",
+  "TMP_ROOT": "<%= PROJECT_ROOT %>/tmp",
+
+  "CLIENT_ROOT": "<%= BASE.SRC_ROOT %>/client",
+  "CLIENT_JS_ROOT": "<%= BASE.CLIENT_ROOT %>/js",
+  "CLIENT_JS_EXTERNS": "<%= BASE.CLIENT_JS_ROOT %>/externs/**/*.js",
+  "CLIENT_JS_THIRD_PARTY_ROOT": "<%= BASE.CLIENT_JS_ROOT %>/third_party",
+  "CLIENT_JS_THIRD_PARTY_GLOB": "**/*.{js,map}",
+  "CLIENT_JS_THIRD_PARTY_FILES": "<%= BASE.CLIENT_JS_THIRD_PARTY_ROOT %>/<%= BASE.CLIENT_JS_THIRD_PARTY_GLOB %>",
+  "CLIENT_JS_FILES": "<%= BASE.CLIENT_JS_ROOT %>/**/*.js",
+  "CLIENT_JS_LISTING_FILE": "<%= BASE.CLIENT_JS_ROOT %>/listing.json",
+  "CLIENT_SOY_ROOT": "<%= BASE.CLIENT_ROOT %>/soy",
+  "CLIENT_SOY_GLOB": "**/*.soy",
+  "CLIENT_SOY_FILES": "<%= BASE.CLIENT_SOY_ROOT %>/<%= BASE.CLIENT_SOY_GLOB %>",
+  "CLIENT_LESS_ROOT": "<%= BASE.CLIENT_ROOT %>/less",
+  "CLIENT_LESS_GLOB": "**/*.less",
+  "CLIENT_LESS_FILES": "<%= BASE.CLIENT_LESS_ROOT %>/<%= BASE.CLIENT_LESS_GLOB %>",
+
+  "BUILT_STATIC_ROOT": "<%= BASE.BUILD_ROOT %>/static",
+  "BUILT_CLIENT_JS_ROOT": "<%= BASE.BUILT_STATIC_ROOT %>/js",
+  "BUILT_CLIENT_JS_THIRD_PARTY_ROOT": "<%= BASE.BUILT_STATIC_ROOT %>/js/third_party",
+  "BUILT_CLIENT_JS_FILE": "<%= BASE.BUILT_CLIENT_JS_ROOT %>/$_jsNamespace_$.js",
+  "BUILT_CLIENT_LESS_ROOT": "<%= BASE.BUILT_STATIC_ROOT %>/css",
+  "BUILT_CLIENT_SOY_ROOT": "<%= BASE.BUILD_ROOT %>/templates",
+
+  "SERVER_ROOT": "<%= BASE.SRC_ROOT %>/server",
+  "BUILT_SERVER_SOY_ROOT": "<%= BASE.BUILD_ROOT %>/server-templates"
+}

@@ -1,0 +1,12 @@
+{
+  "SOY_JAR_DIR": "<%= BASE.DEPENDENCIES_ROOT %>/soy",
+  "SOY_TO_JS_COMPILER_URL": "http://closure-templates.googlecode.com/files/closure-templates-for-javascript-latest.zip",
+  "SOY_MSG_EXTRACTOR_URL": "http://closure-templates.googlecode.com/files/closure-templates-msg-extractor-latest.zip",
+  "SOY_TO_JS_COMPILER_TEMP_ZIP": "<%= BASE.TMP_ROOT %>/soy2js.zip",
+  "SOY_MSG_EXTRACTOR_TEMP_ZIP": "<%= BASE.TMP_ROOT %>/soymsg.zip",
+
+  "CLOSURE_COMPILER_JAR_DIR": "<%= BASE.DEPENDENCIES_ROOT %>/closure-compiler",
+  "CLOSURE_COMPILER_URL": "http://dl.google.com/closure-compiler/compiler-latest.zip",
+  "CLOSURE_COMPILER_TEMP_ZIP": "<%= BASE.TMP_ROOT %>/cc.zip",
+  "CLOSURE_COMPILER_JAR": "<%= DEPENDENCIES.CLOSURE_COMPILER_JAR_DIR %>/compiler.jar"
+}
