@@ -1,6 +1,4 @@
-/** @suppress {duplicate} */
-var $_jsNamespace_$ = $_jsNamespace_$ || {};
-$_jsNamespace_$.core = $_jsNamespace_$.core || {};
+goog.provide('$_jsNamespace_$.core.Class');
 
 $_jsNamespace_$.core.Class = {
   /**

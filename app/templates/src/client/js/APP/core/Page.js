@@ -1,6 +1,6 @@
-/** @suppress {duplicate} */
-var $_jsNamespace_$ = $_jsNamespace_$ || {};
-$_jsNamespace_$.core = $_jsNamespace_$.core || {};
+goog.provide('$_jsNamespace_$.core.Page');
+
+goog.require('$_jsNamespace_$.core.View');
 
 /**
  * @extends {$_jsNamespace_$.core.View}

@@ -13,7 +13,8 @@ module.exports = function(grunt) {
           externs: ['<%= BASE.CLIENT_JS_EXTERNS %>'],
           warning_level: 'verbose',
           summary_detail_level: 3,
-          output_wrapper: '"(function(){ %output% }).call(this);"'
+          output_wrapper: '"(function(){ %output% }).call(this);"',
+          process_closure_primitives: true
         },
         execOpts: {
           maxBuffer: 100000 * 1024

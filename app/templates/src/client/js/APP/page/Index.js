@@ -1,6 +1,7 @@
-/** @suppress {duplicate} */
-var $_jsNamespace_$ = $_jsNamespace_$ || {};
-$_jsNamespace_$.page = $_jsNamespace_$.page || {};
+goog.provide('$_jsNamespace_$.page.Index');
+
+goog.require('$_jsNamespace_$.core.Page');
+goog.require('$_jsNamespace_$.core.Router');
 
 /**
  * @constructor
