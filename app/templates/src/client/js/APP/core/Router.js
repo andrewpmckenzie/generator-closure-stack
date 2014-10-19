@@ -33,12 +33,16 @@ $_jsNamespace_$.core.Router.prototype = {
     this.loadPageFromUrl_();
 
     $(window).on('popstate', this.loadPageFromUrl_.bind(this));
-    $(window).on('click', 'a[href]', function(e) {
+    $('body').on('click', 'a[href]', function(e) {
       var $el = $(e.currentTarget);
-      var href = $el.prop('href');
-      if (/^\//.test(href) && !e.metaKey) {
+      var href = /** @type {string} */($el.prop('href'));
+      if (href.indexOf(document.location.origin) === 0) {
+        href = href.replace(document.location.origin, '');
+      }
+      if (this.isInternalPath_(href) && !e.metaKey) {
         e.preventDefault();
         this.loadUrl(href);
+        window.history.pushState({}, '', href);
       }
     }.bind(this));
   },
@@ -66,6 +70,15 @@ $_jsNamespace_$.core.Router.prototype = {
     } else {
       throw new Error('Could not find page that matches route', route);
     }
+  },
+
+  /**
+   * @private
+   * @param {string} href
+   * @return {boolean}
+   */
+  isInternalPath_: function(href) {
+    return href.indexOf('/') === 0;
   },
 
   /**
