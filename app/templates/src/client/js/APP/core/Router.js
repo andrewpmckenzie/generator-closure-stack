@@ -84,7 +84,7 @@ $_jsNamespace_$.core.Router.prototype = {
    */
   extractRoute_: function(url) {
     var components = url.split('?');
-    var rawPath = components[0].replace(/^\//, '');
+    var rawPath = components[0];
     var path = rawPath.split('/');
     var params = {};
     if (components[1]) {

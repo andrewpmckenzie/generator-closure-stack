@@ -44,6 +44,9 @@ module.exports = function(grunt) {
     // https://github.com/sapegin/grunt-bower-concat
     bower_concat: {
       all: {
+        dependencies: {
+          'bootstrap': 'reset-css'
+        },
         dest: '<%= BASE.BUILT_CLIENT_JS_THIRD_PARTY %>',
         cssDest: '<%= BASE.BUILT_CLIENT_CSS_THIRD_PARTY %>'
       }

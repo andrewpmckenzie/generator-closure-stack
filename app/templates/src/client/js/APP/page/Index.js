@@ -24,7 +24,7 @@ $_jsNamespace_$.page.Index.prototype = {
  * @param {$_jsNamespace_$.core.Router.Route} route
  * @return {boolean}
  */
-$_jsNamespace_$.page.Index.matchesRoute = function(route) { return true; };
+$_jsNamespace_$.page.Index.matchesRoute = function(route) { return route.rawPath === '/' || route.rawPath === ''; };
 
 $_jsNamespace_$.core.Class.extend($_jsNamespace_$.page.Index, $_jsNamespace_$.core.Page);
 

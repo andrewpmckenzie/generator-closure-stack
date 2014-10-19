@@ -28,7 +28,7 @@ module.exports = function(grunt) {
 
       soycompile: {
         files: [ '<%= BASE.CLIENT_SOY_FILES %>' ],
-        tasks: [ 'soycompile:dev', 'closureCompiler:dev' ]
+        tasks: [ 'soycompile:dev', 'closureCompiler' ]
       }
     }
   });
