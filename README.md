@@ -7,6 +7,7 @@ The stack:
 
  - [Node](http://nodejs.org/): Server side JavaScript
  - [Grunt](http://gruntjs.com/): Task automation
+ - [Bower](http://bower.io/): Third-pary client libraries
  - [Express](http://expressjs.com/): Web server for node 
  - [LESS CSS](http://lesscss.org/): Programmatic CSS
  - [Closure Compiler](https://developers.google.com/closure/compiler/): Type safe and minified JavaScript
