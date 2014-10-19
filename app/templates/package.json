@@ -24,9 +24,9 @@
     "grunt-contrib-less": "0.11.x",
     "grunt-contrib-uglify": "0.6.x",
     "grunt-contrib-cssmin": "0.10.x",
-    "grunt-soy-compile": "0.5.x",
+    "grunt-soy-compile": "andrewpmckenzie/grunt-soy-compile",
     "grunt-curl": "2.0.x",
     "grunt-zip": "0.16.x",
-    "grunt-closure-tools": "andrewpmckenzie/grunt-closure-tools"
+    "grunt-closure-tools": "0.9.7"
   }
 }
