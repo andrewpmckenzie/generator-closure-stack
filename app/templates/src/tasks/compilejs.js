@@ -29,15 +29,30 @@ module.exports = function(grunt) {
       }
     },
 
-    copy: {
-      thirdpartyjs: {
-        files: [{
-          expand: true,
-          cwd: '<%= BASE.CLIENT_JS_THIRD_PARTY_ROOT %>',
-          src: ['<%= BASE.CLIENT_JS_THIRD_PARTY_GLOB %>'],
-          dest: '<%= BASE.BUILT_CLIENT_JS_THIRD_PARTY_ROOT %>',
-          filter: 'isFile'
-        }]
+    bower_concat: {
+      all: {
+        dest: '<%= BASE.BUILT_CLIENT_JS_THIRD_PARTY %>',
+        cssDest: '<%= BASE.BUILT_CLIENT_CSS_THIRD_PARTY %>'
+      }
+    },
+
+    uglify: {
+      bower: {
+        options: {
+          mangle: true,
+          compress: true
+        },
+        files: {
+          '<%= BASE.BUILT_CLIENT_JS_THIRD_PARTY_MIN %>': '<%= BASE.BUILT_CLIENT_JS_THIRD_PARTY %>'
+        }
+      }
+    },
+
+    cssmin: {
+      bower: {
+        files: {
+          '<%= BASE.BUILT_CLIENT_CSS_THIRD_PARTY_MIN %>': '<%= BASE.BUILT_CLIENT_CSS_THIRD_PARTY %>'
+        }
       }
     },
 
@@ -48,20 +63,19 @@ module.exports = function(grunt) {
       },
 
       closurecompile: {
-        files: [ '<%= BASE.CLIENT_JS_FILES %>', '!<%= BASE.CLIENT_JS_THIRD_PARTY_FILES %>' ],
+        files: [ '<%= BASE.CLIENT_JS_FILES %>' ],
         tasks: [ 'closureCompiler:dev' ]
-      },
-
-      thirdpartyjs: {
-        files: [ '<%= BASE.CLIENT_JS_THIRD_PARTY_FILES %>' ],
-        tasks: [ 'copy:thirdpartyjs' ]
       }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-closure-tools');
+  grunt.loadNpmTasks('grunt-bower-concat');
 
-  grunt.task.registerTask('compilejs:dev', ['closureCompiler:dev', 'copy:thirdpartyjs']);
+  grunt.task.registerTask('third-party-compile', ['bower_concat:all', 'uglify:bower', 'cssmin:bower']);
+  grunt.task.registerTask('compilejs:dev', ['closureCompiler:dev', 'third-party-compile']);
 };
