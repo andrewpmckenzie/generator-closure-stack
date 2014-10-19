@@ -1,15 +1,18 @@
 var Express = require('express');
 
+// http://expressjs.com/
+
 var Server = function() {
   this.app = Express();
-  this.setupRoutes_();
   this.soynode = require('soynode');
   this.isReady_ = false;
 
+  // Prepare template
   this.soynode.setOptions({
     outputDir: process.env.SERVER_SOY_ROOT,
     allowDynamicRecompile: true
   });
+
   this.soynode.compileTemplates(__dirname + '/../soy', function (err) {
     if (err) {
       throw err;
@@ -17,20 +20,29 @@ var Server = function() {
     this.isReady_ = true;
   }.bind(this));
 
+  // Prepare routes
+  this.setupRoutes_();
 };
 
 Server.prototype = {
   setupRoutes_: function() {
-    this.app.get('/', function(req, res){
+
+    // Static paths (CSS, JS, IMG)
+    this.app.use(Express.static(process.env.STATIC_ROOT));
+
+    // If no other routes match, fallback to client routing
+    this.app.use(function(req, res, next) {
       if (this.isReady_) {
-        var html = this.soynode.render('$_jsNamespace_$.templates.app.chrome', {});
+        var minJs = req.param('js') !== 'uncompressed';
+        var html = this.soynode.render('$_jsNamespace_$.templates.app.chrome', {
+          minJs: minJs
+        });
         res.send(html);
       } else {
         res.send('Warming up...');
       }
     }.bind(this));
 
-    this.app.use(Express.static(process.env.STATIC_ROOT))
   },
 
   start: function(port) {

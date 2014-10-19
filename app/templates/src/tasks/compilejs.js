@@ -1,5 +1,15 @@
 module.exports = function(grunt) {
   var jsListing = grunt.file.readJSON(grunt.config.get('BASE.CLIENT_JS_LISTING_FILE'));
+  var _ = require('lodash');
+
+  var compilerOpts = {
+    // https://github.com/google/closure-compiler/wiki/Externs-For-Common-Libraries
+    externs: ['<%= BASE.CLIENT_JS_EXTERNS %>'],
+    warning_level: 'verbose',
+    summary_detail_level: 3,
+    output_wrapper: '"(function(){ %output% }).call(this);"',
+    process_closure_primitives: true
+  };
 
   grunt.config.merge({
 
@@ -7,15 +17,7 @@ module.exports = function(grunt) {
     closureCompiler: {
       options: {
         compilerFile: '<%= DEPENDENCIES.CLOSURE_COMPILER_JAR %>',
-        compilerOpts: {
-          compilation_level: 'ADVANCED_OPTIMIZATIONS',
-          // https://github.com/google/closure-compiler/wiki/Externs-For-Common-Libraries
-          externs: ['<%= BASE.CLIENT_JS_EXTERNS %>'],
-          warning_level: 'verbose',
-          summary_detail_level: 3,
-          output_wrapper: '"(function(){ %output% }).call(this);"',
-          process_closure_primitives: true
-        },
+        compilerOpts: compilerOpts,
         execOpts: {
           maxBuffer: 100000 * 1024
         },
@@ -23,12 +25,23 @@ module.exports = function(grunt) {
         javaFlags: ['-Xms512m']
       },
 
-      dev: {
+      advancedCompile: {
+        options: {
+          compilerOpts: _.extend({
+            compilation_level: 'ADVANCED_OPTIMIZATIONS'
+          }, compilerOpts)
+        },
+        src: [jsListing],
+        dest: ['<%= BASE.BUILT_CLIENT_ADVANCED_JS_FILE %>']
+      },
+
+      standardCompile: {
         src: [jsListing],
         dest: ['<%= BASE.BUILT_CLIENT_JS_FILE %>']
       }
     },
 
+    // https://github.com/sapegin/grunt-bower-concat
     bower_concat: {
       all: {
         dest: '<%= BASE.BUILT_CLIENT_JS_THIRD_PARTY %>',
@@ -36,6 +49,7 @@ module.exports = function(grunt) {
       }
     },
 
+    // https://github.com/gruntjs/grunt-contrib-uglify
     uglify: {
       bower: {
         options: {
@@ -48,6 +62,7 @@ module.exports = function(grunt) {
       }
     },
 
+    // https://github.com/gruntjs/grunt-contrib-cssmin
     cssmin: {
       bower: {
         files: {
@@ -64,7 +79,7 @@ module.exports = function(grunt) {
 
       closurecompile: {
         files: [ '<%= BASE.CLIENT_JS_FILES %>' ],
-        tasks: [ 'closureCompiler:dev' ]
+        tasks: [ 'closureCompiler' ]
       }
     }
   });
@@ -77,5 +92,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-bower-concat');
 
   grunt.task.registerTask('third-party-compile', ['bower_concat:all', 'uglify:bower', 'cssmin:bower']);
-  grunt.task.registerTask('compilejs:dev', ['closureCompiler:dev', 'third-party-compile']);
+  grunt.task.registerTask('compilejs:dev', ['closureCompiler', 'third-party-compile']);
 };
