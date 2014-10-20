@@ -17,12 +17,12 @@ $_jsNamespace_$.core.View = function(options) {
 $_jsNamespace_$.core.View.prototype = {
 
   /**
-   * @return {undefined}
+   * @return {$_jsNamespace_$.core.View}
    */
-  render: function() { },
+  render: function() { return this; },
 
   /**
-   * @return {undefined}
+   * @return {$_jsNamespace_$.core.View}
    */
-  decorate: function() { }
+  decorate: function() { return this; }
 };

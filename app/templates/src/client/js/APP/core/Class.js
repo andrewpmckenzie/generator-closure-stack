@@ -12,7 +12,7 @@ $_jsNamespace_$.core.Class = {
     InheritingClass.__super__ = BaseClass.prototype;
 
     for (var instanceMethod in BaseClass.prototype) {
-      if (! instanceMethod in InheritingClass.prototype) {
+      if (! (instanceMethod in InheritingClass.prototype) ) {
         InheritingClass.prototype[instanceMethod] = BaseClass.prototype[instanceMethod];
       }
     }

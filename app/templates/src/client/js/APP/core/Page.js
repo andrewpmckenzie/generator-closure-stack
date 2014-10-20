@@ -18,6 +18,7 @@ $_jsNamespace_$.core.Page = function(options) {
 };
 
 $_jsNamespace_$.core.Page.prototype = {
+  /** @inheritDoc */
   render: function() { throw new Error('AbstractMethod - you need to override this'); }
 };
 

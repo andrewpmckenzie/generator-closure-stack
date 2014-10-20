@@ -2,7 +2,8 @@
   "src/client/js/$_jsNamespace_$/core/Class.js",
   "src/client/js/$_jsNamespace_$/core/View.js",
   "src/client/js/$_jsNamespace_$/core/Page.js",
+  "src/client/js/$_jsNamespace_$/core/SimplePage.js",
   "src/client/js/$_jsNamespace_$/core/Router.js",
-  "src/client/js/$_jsNamespace_$/page/**/*.js",
-  "build/templates/**/*.js"
+  "build/templates/**/*.js",
+  "src/client/js/$_jsNamespace_$/page/**/*.js"
 ]
