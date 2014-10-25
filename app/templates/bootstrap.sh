@@ -30,11 +30,11 @@ GRUNT_SYMLINK="./grunt"
 GRUNT_DIR="./node_modules/grunt-cli"
 GRUNT_BIN="${GRUNT_DIR}/bin/grunt"
 
-YEOMAN_VERSION="1.3.2"
+YEOMAN_VERSION="1.3.3"
 YEOMAN_DIR="./node_modules/yo"
 YEOMAN_BIN="${YEOMAN_DIR}/cli.js"
 YEOMAN_GENERATOR="closure-stack"
-YEOMAN_GENERATOR_PACKAGE="../generator-closure-stack"
+YEOMAN_GENERATOR_PACKAGE="generator-closure-stack"
 
 mkdir -p ${TEMP_DIR}
 
