@@ -10,11 +10,28 @@ goog.require('$_jsNamespace_$.core.Router');
  */
 $_jsNamespace_$.page.Index = function(options) {
   $_jsNamespace_$.page.Index.__superconstructor__.call(this, options);
+
+  /**
+   * @private
+   * @type {$_jsNamespace_$.page.index.UserInformationView|null}
+   */
+  this.userInformationView_ = null;
 };
 
 $_jsNamespace_$.page.Index.prototype = {
   /** @inheritDoc */
-  template: $_jsNamespace_$.templates.pages.index.page
+  template: $_jsNamespace_$.templates.pages.index.page,
+
+  /** @inheritDoc */
+  decorate: function() {
+    $_jsNamespace_$.page.Index.__super__.decorate.call(this);
+
+    this.userInformationView_ = new $_jsNamespace_$.page.index.UserInformationView({
+      el: this.$el.find('.userInformation')
+    }).decorate();
+
+    return this;
+  }
 };
 
 /**

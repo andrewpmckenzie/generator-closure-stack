@@ -4,6 +4,9 @@
   "src/client/js/$_jsNamespace_$/core/Page.js",
   "src/client/js/$_jsNamespace_$/core/SimplePage.js",
   "src/client/js/$_jsNamespace_$/core/Router.js",
+  "src/client/js/$_jsNamespace_$/core/Service.js",
+
   "build/templates/**/*.js",
+  "src/client/js/$_jsNamespace_$/service/**/*.js",
   "src/client/js/$_jsNamespace_$/page/**/*.js"
 ]
