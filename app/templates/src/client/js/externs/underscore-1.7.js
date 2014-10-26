@@ -20,3 +20,12 @@ _.find = function(arr, matcher) { };
  * @template T
  */
 _.each = function(arr, iterator) { };
+
+/**
+ * @param {Function} fct
+ * @param {T} context
+ * @return {function(this:T)}
+ * @template T
+ * @suppress {checkTypes}
+ */
+_.bind = function(fct, context) { };
